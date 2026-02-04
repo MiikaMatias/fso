@@ -1,11 +1,11 @@
 
 type TotalProps = {
-  amount: number
+  amount: Array<Part>
 };
 const Total = ({amount}: TotalProps) => {
   return(
     <>
-      <p>Number of exercises: {amount}</p>
+      <p>Number of exercises: {amount.length}</p>
     </>
   )
 }
@@ -45,6 +45,7 @@ const Header = (props: HeaderProps) => {
 }
 
 const App = () => {
+  const course: string = 'Half Stack application development';
   const parts: Array<Part> = [
     {
       name:'Fundamentals of React', 
@@ -60,13 +61,11 @@ const App = () => {
     }
   ];
 
-
-
   return (
     <div>
-      <Header course='Half Stack application development'></Header>
+      <Header course={course}></Header>
       <Content parts={parts}></Content>
-      <Total amount={parts.length}></Total>
+      <Total amount={parts}></Total>
     </div>
   )
 }
